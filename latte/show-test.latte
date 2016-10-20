@@ -1,0 +1,93 @@
+<?php
+/**
+ * ITU project - e-learning system for czech plants
+ * Test show template
+ * 
+ * @author Hynek Blaha     xblaha22@stud.fit.vutbr.cz
+ *         Jiri Hon        xhonji01@stud.fit.vutbr.cz
+ *         Vojtech Simetka xsimet00@stud.fit.vutbr.cz
+ * @date   2012/12/06
+ * @file   show-test.latte
+ */
+?>
+
+{layout '@layout.latte'}
+
+{block #title}Test, {$taxonomy->name}{/block}
+
+{block #body}
+
+
+<div id="test_image">
+	<img src="./plant/{$plant->img}.png" alt="Obrázek" />
+</div>
+
+
+<a href="./result.php?taxonomy={$taxonomy->id}&amp;level={$level}" id="button_top_left"><b>Z</b>pět</a>
+
+<!-- Arrows -->
+<a href="./show-test.php?taxonomy={$taxonomy->id}&amp;level={$level}&amp;id={$prev->id}" id="test_arrow_left"> </a>
+<a href="./show-test.php?taxonomy={$taxonomy->id}&amp;level={$level}&amp;id={$next->id}" id="test_arrow_right"> </a>
+
+<div id="test_legend">
+	<div id="black_opacity_bg"></div>
+	
+{if $level == 1}
+	<!-- Test table -->
+	<table id="test_option_table">
+	<tr>
+		<td>
+			<a class="{option_class($options[0]->id)}" id="option_1">
+				<span class="test_shortcut">1</span>{$options[0]->text}
+			</a>
+		</td>
+		<td>
+			<a class="{option_class($options[1]->id)}" id="option_2">
+				<span class="test_shortcut">2</span>{$options[1]->text}
+			</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class="{option_class($options[2]->id)}" id="option_3">
+				<span class="test_shortcut">3</span>{$options[2]->text}
+			</a>
+		</td>
+		<td>
+			<a class="{option_class($options[3]->id)}" id="option_4">
+				<span class="test_shortcut">4</span>{$options[3]->text}
+			</a>
+		</td>
+	</tr>
+	</table>
+	
+{elseif $level == 2}
+
+	<table id="test_option_table">
+	<tr>
+		<td>
+			<a>
+				Správně:<br />
+				<span class="fulltext_correct">{$plant_name}</span>
+			</a>
+		</td>
+		<td>
+			<a>
+				Vaše odpověď:<br />
+				<span n:class="$answer->correct ? 'fulltext_correct' : 'fulltext_incorrect'">
+				{ifset $answer->answer}{$answer->answer}{/ifset}</span>
+			</a>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	</table>
+
+{/if}
+</div>
+
+<div id="test_numbering">{$current}/{$total}</div>
+
+{/block}

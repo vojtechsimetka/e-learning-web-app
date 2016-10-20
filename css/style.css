@@ -1,0 +1,583 @@
+/**
+ * ITU project - e-learning system for czech plants
+ * Stylesheet
+ * 
+ * @author Hynek Blaha     xblaha22@stud.fit.vutbr.cz
+ *         Jiri Hon        xhonji01@stud.fit.vutbr.cz
+ *         Vojtech Simetka xsimet00@stud.fit.vutbr.cz
+ * @date   2012/12/03
+ * @file   style.css
+*/
+
+body {
+	background-color: black;
+	top: 0px;
+	left: 0px;
+	padding: 0px;
+	margin: 0px; 
+}
+
+a {
+	text-decoration: none;
+}
+
+td {
+	padding: 0;
+}
+
+ul.error,
+ul.confirm {
+	margin: 15px 0 0 20px;
+	padding: 0;
+}
+
+ul.confirm li,
+ul.error li {
+	display: block;
+	padding: 5px 10px;
+	list-style-type: none;
+	margin-bottom: .5em;
+}
+
+ul.error li {
+	background: #fee;
+	color: red;
+}
+
+ul.confirm li {
+	background: #efe;
+	color: green;
+}
+
+#menu_table {
+	width: 100%;
+}
+#menu_table td {
+	height: 270px;
+}
+
+#test_option_table {
+	width: 100%;
+	height: 100%;
+	border-spacing: 2px;
+}
+#test_option_table td {
+	width: 50%;
+}
+
+#plant_name {
+	color: white;
+}
+
+.fulltext_correct {
+	color: green;
+}
+.fulltext_incorrect {
+	color: red;
+}
+
+#show_text {
+	position: relative;
+	color: white;
+	text-align: center;
+	font-size: x-large;
+	font-family: "Futura", sans-serif;
+	font-weight: 900;
+}
+
+#main_menu_background {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-image: url("../img/menu_background.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+}
+
+#logo {
+	background-image: url("../img/logo.png");
+	background-repeat: no-repeat;
+	position: absolute;
+	width: 330px;
+	height: 80px;
+	left: 50%;
+	top: 0px;
+	margin-left: -165px;
+}
+
+#arrow_right {
+	display: block;
+	background-image: url("../img/arrow_r.png");
+	background-repeat: no-repeat;
+	position: absolute;
+	width: 50px;
+	height: 98px;
+	right: -30px;
+	margin-top: 225px;
+}
+
+#arrow_left {
+	display: block;
+	background-image: url("../img/arrow_l.png");
+	background-repeat: no-repeat;
+	position: absolute;
+	width: 50px;
+	height: 98px;
+	left: -30px;
+	margin-top: 225px;
+}
+
+#test_image {
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#test_image img {
+	width: 100%;
+}
+
+#test_legend {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	height: 180px;
+	width: 100%;
+	vertical-align: middle;
+}
+
+#test_option_table a {
+	display: block;
+	height: 60px;
+	position: relative;
+	color: white;
+	padding-top: 25px;
+	padding-left: 100px;
+	font-size: x-large;
+	font-family: "Futura", sans-serif;
+	font-weight: 900;
+}
+
+.test_shortcut {
+	position: absolute;
+	color: blue;
+	margin-left: -20px;
+	vertical-align: middle;
+	font-size: x-large;
+	font-family: "Futura", sans-serif;
+	font-weight: 900;
+}
+
+.test_selected_text {
+	background-color: gray;
+}
+
+.test_correct_text {
+	background-color: green;
+}
+
+.test_incorrect_text {
+	background-color: red;
+}
+
+#test_option_table a.test_notset_text {
+	border: 5px solid green;
+	height: 55px;
+	padding-left: 95px;
+	padding-top: 20px;
+}
+
+#test_arrow_left {
+	background-image: url("../img/arrow_l.png");
+	background-repeat: no-repeat;
+	position: absolute;
+	width: 50px;
+	height: 98px;
+	top: 37.5%;
+	left: 20px;
+	margin-top: -49px;
+}
+
+#test_arrow_right {
+	background-image: url("../img/arrow_r.png");
+	background-repeat: no-repeat;
+	position: absolute;
+	width: 50px;
+	height: 98px;
+	top: 37.5%;
+	right: 20px;
+	margin-top: -49px;
+}
+
+#test_table {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+#test_button_check {
+	display: block;
+	position: absolute;
+	right: 0px;
+	bottom: 180px;
+	height: 50px;
+	margin-top: -65px;
+	
+	background-color: white;
+	color: #424242;
+	-webkit-border-radius: 15px 0px 0px 0px;
+	-moz-border-radius: 15px 0px 0px 0px;
+	-border-radius: 15px 0px 0px 0px;
+	-khtml-border-radius: 15px 0px 0px 0px;
+	background: -webkit-gradient(linear, left top, left 25, from(#e9e9ea), color-stop(4%, #dbdadb), to(#e9e9ea));	
+	background: -moz-linear-gradient(top, #e9e9ea, #dbdadb 1px, #e9e9ea 25px); 
+	padding-top: 15px;
+	padding-right: 15px;
+	padding-left: 15px;
+	font-family:  "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-weight: 100;
+	font-size: x-large;
+}
+
+#statistics_legend_text {
+	position: absolute;
+	top: 20%;
+	width: 100%;
+	text-align: center;
+	color: white;
+	font-size: x-large;
+	font-family: "Futura", sans-serif;
+	font-weight: 900;
+}
+
+.avrg_percent_legend {
+	position: absolute;
+	color: white;
+	font-size: x-large;
+	font-family: "Futura", sans-serif;
+	font-weight: 900;
+	left: 60px;
+	top: 180px;
+	width: 270px;
+	text-align: center;
+}
+.histogram_legend {
+	position: absolute;
+	color: white;
+	font-size: x-large;
+	font-family: "Futura", sans-serif;
+	font-weight: 900;
+	left: 400px;
+	top: 40px;
+}
+.histogram {
+	position: absolute;
+	color: white;
+	font-family: "Futura", sans-serif;
+	left: 400px;
+	top: 90px;
+}
+.histogram th {
+	text-align: right;
+}
+.histogram td {
+	padding: 6px;
+}
+.histogram_bar {
+	height: 28px;
+	background: green;
+}
+.avrg_percent_detail {
+	position: absolute;
+	font-size: 100px;
+	left: 60px;
+	top: 250px;
+	width: 270px;
+	text-align: center;
+}
+
+#statistics_percent {
+	position: absolute;
+	top:30%;
+	font-size: 200px;
+	width: 100%;
+}
+
+#statistics_button {
+	display: block;
+	position: absolute;
+	left: 300px;
+	top: 80%;
+	height: 50px;
+	width: 300px;
+	text-align: center;
+	vertical-align: middle;
+	
+	background-color: white;
+	color: #424242;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-border-radius: 15px;
+	-khtml-border-radius: 15px;
+	background: -webkit-gradient(linear, left top, left 25, from(#e9e9ea), color-stop(4%, #dbdadb), to(#e9e9ea));	
+	background: -moz-linear-gradient(top, #e9e9ea, #dbdadb 1px, #e9e9ea 25px); 
+	padding-top: 15px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-weight: 100;
+	font-size: x-large;
+}
+
+.grid_shortcut {
+	position: absolute;
+	color: blue;
+	margin-left: -20px;
+	vertical-align: middle;
+	font-size: large;
+	font-family: "Futura", sans-serif;
+	font-weight: 900;
+}
+
+.grid_legend {
+	position: relative;
+	height: 35px;
+	top: 180px;
+	background-color: black;
+	color: white;
+	vertical-align: middle;
+	font-size: 15px;
+	padding-left: 40px;
+	padding-top: 5px;
+	font-size: large;
+	font-family: "Futura", sans-serif;
+	font-weight: 900;
+}
+
+.avrg_percent {
+	position: absolute;
+	font-size: 100px;
+	width: 100%;
+	text-align: center;
+	text-shadow: 0px 1px 0px #444;
+	top: 30px;
+}
+
+.grid_item {
+	display: block;
+	position: relative;
+	width: 300px;
+	height: 220px;
+	left: 80px;
+	background-color: #ededed;
+	vertical-align: middle;
+	text-align: left;
+}
+
+.drill {
+	background: url(../img/drill.jpg);
+}
+.browse {
+	background: url(../img/browse.jpg);
+}
+.statistics {
+	background: url(../img/statistics.jpg);
+}
+.test {
+	background: url(../img/test.jpg);
+}
+.level_easy {
+	background: url(../img/easy.jpg);
+}
+.level_hard {
+	background: url(../img/hard.jpg);
+}
+.inactive {
+	opacity: 0.3;
+}
+
+#user {
+	position: absolute;
+	right: 0px;
+	padding: 5px 0px 5px 0px;
+	color: white;
+	font-family: "Futura", sans-serif;
+	font-weight: 100;
+	font-size: small;
+	left: 170px;
+}
+
+#middle {
+	position: absolute;
+	top: 0px;
+	width: 50%;
+	left: 50%;
+	background-color: black;
+	height: 25px;
+}
+
+#clock {
+	position: absolute;
+	left: 50%;
+	top: 0px;
+	height: 40px;
+	width: 120px;
+	margin-left: -60px;
+	text-align: center;
+	vertical-align: middle;
+	
+	background-color: white;
+	color: #424242;
+	-webkit-border-radius: 0px 0px 15px 15px;
+	-moz-border-radius: 0px 0px 15px 15px;
+	-border-radius: 0px 0px 15px 15px;
+	-khtml-border-radius: 0px 0px 15px 15px;
+	background: -webkit-gradient(linear, left top, left 25, from(#e9e9ea), color-stop(4%, #dbdadb), to(#e9e9ea));	
+	background: -moz-linear-gradient(top, #e9e9ea, #dbdadb 1px, #e9e9ea 25px); 
+	padding-top: 15px;
+	font-family:  "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-weight: 100;
+	font-size: x-large;
+}
+
+#test_numbering {
+	position: absolute;
+	left: 50%;
+	bottom: 0px;
+	height: 40px;
+	width: 120px;
+	margin-left: -60px;
+	text-align: center;
+	vertical-align: middle;
+	
+	background-color: white;
+	color: #424242;
+	-webkit-border-radius: 60px 60px 0px 0px;
+	-moz-border-radius: 60px 60px 0px 0px;
+	-border-radius: 60px 60px 0px 0px;
+	-khtml-border-radius: 60px 60px 0px 0px;
+	background: -webkit-gradient(linear, left top, left 25, from(#e9e9ea), color-stop(4%, #dbdadb), to(#e9e9ea));	
+	background: -moz-linear-gradient(top, #e9e9ea, #dbdadb 1px, #e9e9ea 25px);
+	font-family:  "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	padding-top: 15px;
+	font-weight: 100;
+	font-size: x-large;
+}
+
+
+#button_top_right {
+	display: block;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	height: 50px;
+	
+	background-color: white;
+	color: #424242;
+	-webkit-border-radius: 0px 0px 0px 15px;
+	-moz-border-radius: 0px 0px 0px 15px;
+	-border-radius: 0px 0px 0px 15px;
+	-khtml-border-radius: 0px 0px 0px 15px;
+	background: -webkit-gradient(linear, left top, left 25, from(#e9e9ea), color-stop(4%, #dbdadb), to(#e9e9ea));	
+	background: -moz-linear-gradient(top, #e9e9ea, #dbdadb 1px, #e9e9ea 25px); 
+	padding-top: 15px;
+	padding-right: 15px;
+	padding-left: 15px;
+	font-family:  "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-weight: 100;
+	font-size: x-large;
+}
+
+#button_top_left {
+	display: block;
+	position:absolute;
+	left: 0px;
+	top: 0px;
+	height: 50px;
+	
+	background-color: white;
+	color: #424242;
+	-webkit-border-radius: 0px 0px 15px 0px;
+	-moz-border-radius: 0px 0px 15px 0px;
+	-border-radius: 0px 0px 15px 0px;
+	-khtml-border-radius: 0px 0px 15px 0px;
+	background: -webkit-gradient(linear, left top, left 25, from(#e9e9ea), color-stop(4%, #dbdadb), to(#e9e9ea));	
+	background: -moz-linear-gradient(top, #e9e9ea, #dbdadb 1px, #e9e9ea 25px); 
+	padding-top: 15px;
+	padding-right: 15px;
+	padding-left: 15px;
+	font-family:  "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-weight: 100;
+	font-size: x-large;
+}
+
+#main_menu_frame {
+	position: absolute;
+	width: 900px;
+	height: 550px;
+	left: 50%;
+	top: 80px;
+	margin-left:-450px;
+	text-align: center;
+}
+
+#login_menu_frame {
+	position:absolute;
+	width: 310px;
+	height: 270px;
+	left: 50%;
+	top: 150px;
+	margin-left: -150px;
+}
+
+#black_opacity_bg {
+	background-color: black;
+	opacity: 0.75;
+	position: absolute;
+	width: inherit;
+	height: 100%;
+}
+
+form {
+	color: #424242;
+	font-family: "Tahoma", "Geneva", sans-serif;
+	width: auto;
+	position: absolute;
+}
+
+input[type=text], textarea, input[type=password] {
+	border: 1px solid black;
+	background-color: white;
+	color: black;
+	padding: 10px;
+	font-size: 24px;
+	vertical-align: text-top;
+	position: relative;
+	width: 250px;
+	margin-left: 20px;
+	margin-top: 15px;
+	}
+
+button, input[type=submit] {
+	position: relative;
+	color: #505050;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-border-radius: 15px;
+	-khtml-border-radius: 15px;
+	
+	background-color: white;
+	background: -webkit-gradient(linear, left top, left 25, from(#e9e9ea), color-stop(4%, #dbdadb), to(#e9e9ea));	
+	background: -moz-linear-gradient(top, #e9e9ea, #dbdadb 1px, #e9e9ea 25px); 
+	width: 200px;
+	height: 50px;
+	margin-top: 20px;
+	margin-left: 50px;
+	padding: 15px;
+	font-family:  "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-weight: 100;
+	font-size: x-large;
+}

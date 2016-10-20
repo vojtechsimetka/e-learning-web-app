@@ -1,0 +1,26 @@
+#
+# SECURITY WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+# http://nette.org/security-warning
+#
+common:
+	php:
+		date.timezone: Europe/Prague
+	
+	nette:
+		session:
+			expiration: + 14 days
+	
+	services:
+		authenticator:
+			class: UserAuthenticator
+			arguments: [@database]
+			
+		database:
+			class: Nette\Database\Connection
+			arguments:
+				["mysql:unix_socket=/var/run/mysql/mysql.sock;dbname=database_name",
+				login, password]
+
+production < common:
+
+development < common:

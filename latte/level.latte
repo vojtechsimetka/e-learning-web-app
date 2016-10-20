@@ -1,0 +1,72 @@
+<?php
+/**
+ * ITU project - e-learning system for czech plants
+ * Level selection template
+ * 
+ * @author Hynek Blaha     xblaha22@stud.fit.vutbr.cz
+ *         Jiri Hon        xhonji01@stud.fit.vutbr.cz
+ *         Vojtech Simetka xsimet00@stud.fit.vutbr.cz
+ * @date   2012/12/04
+ * @file   level.latte
+ */
+?>
+
+{layout '@menu.latte'}
+
+{block #title}Obtížnost testu{/block}
+
+{block #menu}
+
+<!-- Content table -->
+<table id="menu_table">
+<tr>
+	<td>
+		{if $easy_inactive}
+		<a class="grid_item level_easy inactive">
+		{else}
+		<a id="test_easy" href="./{$action}.php?taxonomy={$taxonomy}&amp;level=1" class="grid_item level_easy">
+		{/if}
+			<!-- Item 1 -->
+			<div class="grid_legend"><div class="grid_shortcut">1</div>Lehký</div>
+		</a>
+	</td>
+	<td>
+		{if $hard_inactive}
+		<a class="grid_item level_hard inactive">
+		{else}
+		<a id="test_hard" href="./{$action}.php?taxonomy={$taxonomy}&amp;level=2" class="grid_item level_hard">
+		{/if}
+			<!-- Item 2 -->
+			<div class="grid_legend"><div class="grid_shortcut">2</div>Těžký</div>
+		</a>
+	</td>
+</tr>
+</table>
+
+{if $action == 'test'}
+<script type="text/javascript">
+
+{if !$easy_inactive}
+var test_easy = document.getElementById("test_easy")
+test_easy.onclick = function() {
+	return confirm(
+		"Opravdu chcete spustit ostrý test?\n\n" +
+		"Lehká obtížnost, výběr z možností, vždy právě jedna správná, " +
+		"časový limit 5 minut."
+	)
+}
+{/if}
+{if !$hard_inactive}
+var test_hard = document.getElementById("test_hard")
+test_hard.onclick = function() {
+	return confirm(
+		"Opravdu chcete spustit ostrý test?\n\n" +
+		"Těžká obtížnost, textové odpovědi,\nčasový limit 10 minut."
+	)
+}
+{/if}
+
+</script>
+{/if}
+
+{/block}

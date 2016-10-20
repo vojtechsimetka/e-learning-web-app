@@ -1,0 +1,109 @@
+<?php
+/**
+ * ITU project - e-learning system for czech plants
+ * Drill template
+ * 
+ * @author Hynek Blaha     xblaha22@stud.fit.vutbr.cz
+ *         Jiri Hon        xhonji01@stud.fit.vutbr.cz
+ *         Vojtech Simetka xsimet00@stud.fit.vutbr.cz
+ * @date   2012/12/03
+ * @file   drill.latte
+ */
+?>
+
+{layout '@layout.latte'}
+
+{block #title}Drilování {$taxonomy->name}{/block}
+
+{block #body}
+
+<div id="test_image">
+	<img src="./plant/{$plant->img}.png" width="100%" />
+</div>
+
+<!-- Buttons -->
+<a href="#" id="test_button_check">Zkontrolovat</a>
+<a href="./" id="button_top_left"><b>H</b>lavní menu</a>
+
+<!-- Arrows -->
+<a href="./drill.php?taxonomy={$taxonomy->id}&amp;id={$prev->id}" id="test_arrow_left"> </a>
+<a href="./drill.php?taxonomy={$taxonomy->id}&amp;id={$next->id}" id="test_arrow_right"> </a>
+
+<div id="test_legend">
+	<div id="black_opacity_bg"></div>
+
+	<!-- Test table -->
+	<table id="test_option_table">
+	<tr>
+		<td>
+			<a href="#" id="option_1"><span class="test_shortcut">1</span>{$options[0]->text}</a>
+		</td>
+		<td>
+			<a href="#" id="option_2"><span class="test_shortcut">2</span>{$options[1]->text}</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="#" id="option_3"><span class="test_shortcut">3</span>{$options[2]->text}</a>
+		</td>
+		<td>
+			<a href="#" id="option_4"><span class="test_shortcut">4</span>{$options[3]->text}</a>
+		</td>
+	</tr>
+	</table>
+	
+	<script type="text/javascript">
+	
+	var option_1 = document.getElementById("option_1")
+	var option_2 = document.getElementById("option_2")
+	var option_3 = document.getElementById("option_3")
+	var option_4 = document.getElementById("option_4")
+	var check = document.getElementById("test_button_check")
+	
+	var correct = option_<?php echo $correct ?>
+	
+	check.onclick = function()
+	{
+		correct.className = "test_correct_text"
+		
+		if (option_1 != correct && option_1.className == "test_selected_text")
+			option_1.className = "test_incorrect_text"
+		if (option_2 != correct && option_2.className == "test_selected_text")
+			option_2.className = "test_incorrect_text"
+		if (option_3 != correct && option_3.className == "test_selected_text")
+			option_3.className = "test_incorrect_text"
+		if (option_4 != correct && option_4.className == "test_selected_text")
+			option_4.className = "test_incorrect_text"
+	}
+	option_1.onclick = function()
+	{
+		this.className = "test_selected_text"
+		option_2.className = ""
+		option_3.className = ""
+		option_4.className = ""
+	}
+	option_2.onclick = function()
+	{
+		this.className = "test_selected_text"
+		option_1.className = ""
+		option_3.className = ""
+		option_4.className = ""
+	}
+	option_3.onclick = function()
+	{
+		this.className = "test_selected_text"
+		option_2.className = ""
+		option_1.className = ""
+		option_4.className = ""
+	}
+	option_4.onclick = function()
+	{
+		this.className = "test_selected_text"
+		option_2.className = ""
+		option_3.className = ""
+		option_1.className = ""
+	}
+	</script>
+</div>
+
+{/block}

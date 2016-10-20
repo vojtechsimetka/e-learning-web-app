@@ -1,0 +1,26 @@
+<?php
+/**
+ * ITU project - e-learning system for czech plants
+ * Result template
+ * 
+ * @author Hynek Blaha     xblaha22@stud.fit.vutbr.cz
+ *         Jiri Hon        xhonji01@stud.fit.vutbr.cz
+ *         Vojtech Simetka xsimet00@stud.fit.vutbr.cz
+ * @date   2012/12/04
+ * @file   result.latte
+ */
+?>
+
+{layout '@menu.latte'}
+
+{block #title}Výsledek testu{/block}
+
+{block #menu}
+
+<div id="statistics">
+	<div id="statistics_legend_text">Výsledek testu:</div><br />
+	<div id="statistics_percent" style="color: <?php echo percent_color($percent) ?>">{$percent}&nbsp;%</div>
+	<a href="./show-test.php?taxonomy={$taxonomy}&amp;level={$level}" id="statistics_button"><b>P</b>rohlédnout otázky</a>
+</div>
+
+{/block}

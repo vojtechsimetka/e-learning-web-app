@@ -1,0 +1,38 @@
+<?php
+/**
+ * ITU project - e-learning system for czech plants
+ * Plant look over template
+ * 
+ * @author Hynek Blaha     xblaha22@stud.fit.vutbr.cz
+ *         Jiri Hon        xhonji01@stud.fit.vutbr.cz
+ *         Vojtech Simetka xsimet00@stud.fit.vutbr.cz
+ * @date   2012/12/03
+ * @file   show.latte
+ */
+?>
+
+{layout '@layout.latte'}
+
+{block #title}Prohlížení okruhu {$taxonomy->name}{/block}
+
+{block #body}
+
+<div id="test_image">
+	<img src="./plant/{$plant->img}.png" width="100%" />
+</div>
+
+<!-- Buttons -->
+<a href="./" id="button_top_left"><b>H</b>lavní menu</a>
+
+<!-- Arrows -->
+<a href="./show.php?taxonomy={$taxonomy->id}&amp;id={$prev->id}" id="test_arrow_left"> </a>
+<a href="./show.php?taxonomy={$taxonomy->id}&amp;id={$next->id}" id="test_arrow_right"> </a>
+
+<div id="test_legend">
+	<div id="black_opacity_bg"></div>
+
+	<!-- Test table -->
+	<p id="show_text">{$plant->ref('option', 'name')->text}</p>
+</div>
+
+{/block}

@@ -1,0 +1,21 @@
+=================================================================================
+Planta -- aplikace na výuku a znalost rostlin ČR
+---------------------------------------------------------------------------------
+Autoři: Hynek Blaha, Vojtěch Šimetka, Jiří Hon
+================================================================================= 
+
+
+Postup instalace
+================
+
+1. Zkopírujte veškeré zdrojové aplikační soubory a složky na zvolený hosting.
+2. Dodatečně si stáhněte archiv s obrázky rostlin ve vysokém rozlišení na adrese:
+   http://www.stud.fit.vutbr.cz/~xhonji01/ITU/plants.zip 
+   Jeho obsah rozbalte a nakopírujte do složky plant/ na zvoleném hostingu.
+3. Omezte přístupová práva k citlivým souborům a složkám, konkrétně: 
+   chmod 0700 latte log tmp
+   chmod 0600 config.neon
+4. Nastavte přístupové údaje k databázi v souboru config.neon
+5. Nastavte proměnnou $HOME v souboru common.php tak, aby obsahovala základní URL,
+   ze které má být aplikace přístupná.
+6. Inicializujte databázi souborem INSTALL.sql a pak tento soubor smažte.

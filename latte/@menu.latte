@@ -1,0 +1,33 @@
+<?php
+/**
+ * ITU project - e-learning system for czech plants
+ * Menu layout
+ * 
+ * @author Hynek Blaha     xblaha22@stud.fit.vutbr.cz
+ *         Jiri Hon        xhonji01@stud.fit.vutbr.cz
+ *         Vojtech Simetka xsimet00@stud.fit.vutbr.cz
+ * @date   2012/12/03
+ * @file   @menu.latte
+ */
+?>
+
+{layout '@layout.latte'}
+
+{block #body}
+<div id="main_menu_background">
+
+	<!-- Logo and buttons -->
+	<div id="middle"><div id="user">Uživatel: {$user->identity->login}</div></div>
+	<div id="logo"></div>
+	<a href="./access.php?action=logout" id="button_top_right"><b>O</b>dhlásit</a>
+	{block #menu-button}<a href="./" id="button_top_left"><b>H</b>lavní menu</a>{/block}
+	
+	<!-- Main black content -->
+	<div id="main_menu_frame">
+		<div id="black_opacity_bg"></div>
+		
+		{block #menu}{/block}
+	</div>
+</div>
+
+{/block}

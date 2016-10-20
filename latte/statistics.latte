@@ -1,0 +1,82 @@
+<?php
+/**
+ * ITU project - e-learning system for czech plants
+ * Statistics template
+ * 
+ * @author Hynek Blaha     xblaha22@stud.fit.vutbr.cz
+ *         Jiri Hon        xhonji01@stud.fit.vutbr.cz
+ *         Vojtech Simetka xsimet00@stud.fit.vutbr.cz
+ * @date   2012/12/07
+ * @file   statistics.latte
+ */
+?>
+
+{layout '@menu.latte'}
+
+{block #title}
+{if $action == 'default'}
+	Výsledky
+{elseif $action == 'detail'}
+	Histogram
+{/if}
+{/block}
+
+{block #menu}
+
+{if $action == 'default'}
+
+<!-- Content table -->
+<table id="menu_table">
+<tr>
+	<td>
+		<a href="./statistics.php?action=detail" class="grid_item">
+			<!-- Item 1 -->
+			<div class="avrg_percent" style="color: <?php echo percent_color($avrg_percent) ?>">{$avrg_percent}&nbsp;%</div>
+			<div class="grid_legend"><div class="grid_shortcut">1</div>Celková úspěšnost</div>
+		</a>
+	</td>
+	<td n:foreach="$db->table('taxonomy')->order('name') as $tax">
+	<?php
+	// Change meaning
+	$exams = $db
+		->table('exam')
+		->where('user_id', $user->identity->id)
+		->where('taxonomy_id', $tax->id)
+		->where('level', array(1, 2))
+		->fetch();
+	?>
+		{if !$exams}
+		<a class="grid_item inactive" style="background:url(img/{$tax->img}.jpg)">
+		{else}
+		<a href="./level.php?action=result&amp;taxonomy={$tax->id}" class="grid_item" style="background:url(img/{$tax->img}.jpg)">
+		{/if}
+			<!-- Item 1 -->
+			<div class="grid_legend"><div class="grid_shortcut">{$iterator->counter+1}</div>{$tax->name}</div>
+		</a>
+	</td>
+</tr>
+</table>
+
+{elseif $action == 'detail'}
+
+<div id="statistics">
+	<div class="avrg_percent_legend">Vaše celková úspěšnost</div>
+	<div class="avrg_percent_detail" style="color: <?php echo percent_color($avrg_percent) ?>">{$avrg_percent}&nbsp;%</div>
+	<div class="histogram_legend">Histogram všech uživatelů</div>
+	<table class="histogram">
+	<tr n:foreach="$histogram as $bar">
+		<th>
+		{if $iterator->last}
+			{($iterator->counter-1)*10}–{$iterator->counter*10}
+		{else}
+			{($iterator->counter-1)*10}–{$iterator->counter*10-1}
+		{/if}
+		</th>
+		<td><div class="histogram_bar" style="width:{$bar}px; background-color: <?php echo percent_color($iterator->counter * 10 - 5) ?>"></div></td>
+	</tr>
+	</table>
+</div>
+
+{/if}
+
+{/block}

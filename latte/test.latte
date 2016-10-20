@@ -1,0 +1,165 @@
+<?php
+/**
+ * ITU project - e-learning system for czech plants
+ * Test template
+ * 
+ * @author Hynek Blaha     xblaha22@stud.fit.vutbr.cz
+ *         Jiri Hon        xhonji01@stud.fit.vutbr.cz
+ *         Vojtech Simetka xsimet00@stud.fit.vutbr.cz
+ * @date   2012/12/06
+ * @file   test.latte
+ */
+?>
+
+{layout '@layout.latte'}
+
+{block #title}Ostrý test, {$taxonomy->name}{/block}
+
+{block #body}
+
+<script type="text/javascript">
+/**
+ * Save answer asynchronously into database
+ */
+function save_answer(answer)
+{
+	var url = {(string) add_query($request->url, "action=save&id=".$question->id)}
+	url += "&answer=" + encodeURIComponent(answer);
+	
+	request = new XMLHttpRequest();
+	request.open("GET", url , true);
+	request.send(null);
+}
+</script>
+
+<div id="test_image">
+	<img src="./plant/{$plant->img}.png" alt="Obrázek" />
+</div>
+
+<!-- Buttons -->
+{var $minutes = floor($countdown/60)}
+{var $seconds = $countdown % 60}
+<div id="clock">{$minutes}:{$seconds < 10 ? '0' : ''}{$seconds}</div>
+
+<script type="text/javascript">
+
+var countdown = {$countdown}
+var clock = document.getElementById("clock")
+
+setInterval(function() {
+	if (countdown <= 0) {
+		window.location = {$home . "result.php?taxonomy=" . $taxonomy . "&level=" . $level}
+	}
+	var minutes = Math.floor(countdown / 60)
+	var seconds = countdown % 60
+	
+	clock.innerHTML = minutes + ':' + (seconds < 10 ? '0' : '') + seconds
+	countdown--
+	
+}, 1000);
+
+</script>
+
+<a href="./result.php?taxonomy={$taxonomy}&amp;level={$level}" id="button_top_right">Ukončit test</a>
+
+<!-- Arrows -->
+<a href="./test.php?taxonomy={$taxonomy->id}&amp;level={$level}&amp;id={$prev->id}" id="test_arrow_left"> </a>
+<a href="./test.php?taxonomy={$taxonomy->id}&amp;level={$level}&amp;id={$next->id}" id="test_arrow_right"> </a>
+
+<div id="test_legend">
+	<div id="black_opacity_bg"></div>
+	
+{if $level == 1}
+	<!-- Test table -->
+	<table id="test_option_table">
+	<tr>
+		<td>
+			<a n:class="isset($answer->option_id) && $answer->option_id == $options[0]->id ? test_selected_text" href="#" id="option_1">
+				<span class="test_shortcut">1</span>{$options[0]->text}
+			</a>
+		</td>
+		<td>
+			<a n:class="isset($answer->option_id) && $answer->option_id == $options[1]->id ? test_selected_text" href="#" id="option_2">
+				<span class="test_shortcut">2</span>{$options[1]->text}
+			</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a n:class="isset($answer->option_id) && $answer->option_id == $options[2]->id ? test_selected_text" href="#" id="option_3">
+				<span class="test_shortcut">3</span>{$options[2]->text}
+			</a>
+		</td>
+		<td>
+			<a n:class="isset($answer->option_id) && $answer->option_id == $options[3]->id ? test_selected_text" href="#" id="option_4">
+				<span class="test_shortcut">4</span>{$options[3]->text}
+			</a>
+		</td>
+	</tr>
+	</table>
+	
+	<script type="text/javascript">
+	
+	var option_1 = document.getElementById("option_1")
+	var option_2 = document.getElementById("option_2")
+	var option_3 = document.getElementById("option_3")
+	var option_4 = document.getElementById("option_4")
+	
+	option_1.onclick = function()
+	{
+		save_answer({$options[0]->id})
+		this.className = "test_selected_text"
+		option_2.className = ""
+		option_3.className = ""
+		option_4.className = ""
+	}
+	option_2.onclick = function()
+	{
+		save_answer({$options[1]->id})
+		this.className = "test_selected_text"
+		option_1.className = ""
+		option_3.className = ""
+		option_4.className = ""
+	}
+	option_3.onclick = function()
+	{
+		save_answer({$options[2]->id})
+		this.className = "test_selected_text"
+		option_2.className = ""
+		option_1.className = ""
+		option_4.className = ""
+	}
+	option_4.onclick = function()
+	{
+		save_answer({$options[3]->id})
+		this.className = "test_selected_text"
+		option_2.className = ""
+		option_3.className = ""
+		option_1.className = ""
+	}
+	</script>
+	
+{elseif $level == 2}
+
+	<form action="./test.php?taxonomy={$taxonomy}&amp;level={$level}&amp;id={$id}" method="post" style="width:100%">
+	<p style="text-align:center">
+		<input type="text" value="{if isset($answer->answer)}{$answer->answer}{/if}" id="answer" placeholder="Zadejte jméno rostliny z obrázku" size="60" style="width:auto" />
+	</p>
+	</form>
+	
+	<script type="text/javascript">
+	
+	var answer = document.getElementById("answer")
+	
+	answer.onchange = function()
+	{
+		save_answer(this.value)
+	}
+	
+	</script>
+{/if}
+</div>
+
+<div id="test_numbering">{$current}/{$total}</div>
+
+{/block}
